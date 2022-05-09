@@ -1,4 +1,4 @@
-const server = 'localhost:3001';
+const server = '143.198.57.130:3001';
 let USERS = [];
 let USER = [];
 let COMMENTS = [];

@@ -12,7 +12,7 @@
 <template id="comment-item-template">
     <div class="comment-item">
         <div class="comment-body">
-            <img class="user-icon" src="http://localhost:3001/james.jpg">
+            <img class="user-icon" src="/james.jpg">
             <div class="comment-content">
                 <div class="title-link inline">
                     <b><div class="name"></div></b>
@@ -24,7 +24,9 @@
                     <small class="inline">
                         <div class="text-button upvote">
                             <span>&#9650;&nbsp;&nbsp;Upvote </span>
-                            <span class="vote-count"></span>
+                            <span class="vote-count">
+                                <span></span>
+                            </span>
                         </div>
                         <div class="text-button reply">Reply</div>
                     </small>
@@ -40,7 +42,7 @@
     <div class="discussion">
         <h3>Discussion</h3>
         <div id="comment-box">
-            <img class="user-icon" src="http://localhost:3001/james.jpg">
+            <img class="user-icon" src="/james.jpg">
             <input id="comment-text" placeholder="What are your thoughts?" type="text" />
             <button onclick="addComment()">Comment</button>
         </div>
@@ -64,6 +66,6 @@
 <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 -->
 <!-- Add React component -->
-<script src="upvote.js"></script>
+<script src="upvote.js" onload="renderReact()"></script>
 </body>
 </html>
