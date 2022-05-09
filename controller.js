@@ -56,6 +56,26 @@ function getComments(req, res) {
 }
 
 /**
+ * Gets a single comment, for the commentId specified
+ * @param req
+ * @param res
+ * @returns {*|void}
+ */
+function getComment(req, res) {
+    try {
+        const { commentId } = req.query;
+        getCommentById(commentId, (error, comment) => {
+            if (error) {
+                return res.status(httpStatus.BAD_REQUEST).send();
+            }
+            res.status(200).json(comment);
+        });
+    } catch (err) {
+        return res.status(httpStatus.INTERNAL_SERVER_ERROR).send({ error: err, message: err.message });
+    }
+}
+
+/**
  * Add a new comment
  * @param req
  * @param res
@@ -91,6 +111,12 @@ function addComment(req, res) {
     }
 }
 
+/**
+ * Increases the vote count of the comment by 1
+ * @param req
+ * @param res
+ * @returns {*|void}
+ */
 function addVote(req, res) {
     try {
         // Step 1: Check if userId and commentId are present
@@ -123,5 +149,6 @@ module.exports = {
     getUsers,
     getComments,
     addComment,
-    addVote
+    addVote,
+    getComment
 }

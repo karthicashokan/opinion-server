@@ -20,6 +20,7 @@ router.get('/', (req, res) => {
 
 router.get('/getUsers', Controller.getUsers);
 router.get('/getComments', Controller.getComments);
+router.get('/getComment', Controller.getComment);
 router.post('/comment', Controller.addComment);
 router.post('/upvote', Controller.addVote);
 
