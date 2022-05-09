@@ -47,7 +47,7 @@ function getComments(req, res) {
                 throw new SyntaxError(err);
             }
             // Add additional attribute readableDate, that the front-end can display to the user
-            res.map((comment) => comment.dateFormatted = readableDate(comment.date));
+            data.map((comment) => comment.dateFormatted = readableDate(comment.date));
             res.status(200).json(data);
         });
     } catch (err) {
